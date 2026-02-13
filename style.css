@@ -4,21 +4,25 @@
     box-sizing: border-box;
 }
 
+/* ====== JAZZ CLUB THEME ====== */
 body {
-    background-color: #FFE4E8;
-    font-family: 'Nunito', sans-serif;
+    background-color: #0f172a; /* deep navy */
+    color: #f5f5dc; /* cream */
+    font-family: Georgia, "Times New Roman", serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
+    /* subtle "stage light" glow */
     background-image:
-        radial-gradient(circle at 15% 85%, #ffb3c1 0%, transparent 40%),
-        radial-gradient(circle at 85% 15%, #ff8fa3 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, #fff0f3 0%, transparent 60%);
+        radial-gradient(circle at 18% 78%, rgba(212, 175, 55, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 82% 18%, rgba(90, 30, 54, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(245, 245, 220, 0.08) 0%, transparent 60%);
 }
 
-/* Floating hearts background */
+/* Floating background (swap hearts -> music vibe) */
 .hearts-bg {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -29,24 +33,24 @@ body {
 
 .hearts-bg::before,
 .hearts-bg::after {
-    content: '💕 💗 💖 💝 💓';
+    content: '🎷 🎶 🎺 🎼 🎹';
     position: absolute;
-    font-size: 1.5rem;
-    opacity: 0.15;
-    animation: floatHearts 12s linear infinite;
+    font-size: 1.35rem;
+    opacity: 0.10;
+    animation: floatHearts 14s linear infinite;
     white-space: nowrap;
     top: 100%;
     left: 10%;
 }
 
 .hearts-bg::after {
-    animation-delay: 6s;
-    left: 60%;
-    content: '💗 💕 💓 💖 💝';
+    animation-delay: 7s;
+    left: 58%;
+    content: '🎶 🎷 🎼 🎺 🎹';
 }
 
 @keyframes floatHearts {
-    from { transform: translateY(0); opacity: 0.15; }
+    from { transform: translateY(0); opacity: 0.10; }
     to { transform: translateY(-110vh); opacity: 0; }
 }
 
@@ -57,18 +61,20 @@ body {
     padding: 40px 20px;
 }
 
+/* Title: classy, subtle motion */
 h1 {
-    font-size: 2.4rem;
-    color: #d63384;
+    font-size: 2.35rem;
+    color: #d4af37; /* warm gold */
     font-weight: 900;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 0px rgba(214, 51, 132, 0.2);
-    animation: wiggle 2s ease-in-out infinite;
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    animation: wiggle 2.6s ease-in-out infinite;
+    letter-spacing: 0.3px;
 }
 
 @keyframes wiggle {
-    0%, 100% { transform: rotate(-1deg); }
-    50% { transform: rotate(1deg); }
+    0%, 100% { transform: rotate(-0.6deg); }
+    50% { transform: rotate(0.6deg); }
 }
 
 .gif-container {
@@ -81,10 +87,11 @@ h1 {
     width: 200px;
     height: 200px;
     object-fit: contain;
-    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 14px 26px rgba(0,0,0,0.40));
     transition: opacity 0.3s ease;
 }
 
+/* Buttons row */
 .buttons {
     display: flex;
     gap: 20px;
@@ -94,53 +101,57 @@ h1 {
     flex-wrap: wrap;
 }
 
+/* YES: gold, like a spotlight */
 #yes-btn {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
-    color: white;
+    background: linear-gradient(135deg, #d4af37, #b98b1f);
+    color: #0f172a;
     border: none;
     border-radius: 16px;
     font-size: 1.6rem;
     font-weight: 900;
-    font-family: 'Nunito', sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     padding: 18px 45px;
     cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.45);
-    letter-spacing: 1px;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.28);
+    letter-spacing: 0.6px;
 }
 
 #yes-btn:hover {
     transform: scale(1.06) translateY(-2px);
-    box-shadow: 0 10px 28px rgba(76, 175, 80, 0.55);
+    box-shadow: 0 16px 38px rgba(212, 175, 55, 0.34);
+    filter: brightness(1.02);
 }
 
 #yes-btn:active {
     transform: scale(0.98);
 }
 
+/* NO: subtle cream outline, still visible but understated */
 #no-btn {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white;
-    border: none;
+    background: rgba(245, 245, 220, 0.10);
+    color: #f5f5dc;
+    border: 1px solid rgba(245, 245, 220, 0.35);
     border-radius: 12px;
     font-size: 1rem;
     font-weight: 700;
-    font-family: 'Nunito', sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     padding: 12px 28px;
     cursor: pointer;
-    transition: background 0.2s, left 0.25s ease, top 0.25s ease;
-    box-shadow: 0 4px 14px rgba(231, 76, 60, 0.4);
+    transition: background 0.2s, left 0.25s ease, top 0.25s ease, transform 0.15s ease;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
 }
 
 #no-btn:hover {
-    background: linear-gradient(135deg, #c0392b, #a93226);
+    background: rgba(245, 245, 220, 0.14);
+    transform: translateY(-1px);
 }
 
-
+/* Toast / tease line */
 #tease-toast {
     margin-top: 14px;
     font-size: 1rem;
-    color: #d63384;
+    color: rgba(245, 245, 220, 0.85);
     font-weight: 700;
     font-style: italic;
     opacity: 0;
@@ -154,42 +165,45 @@ h1 {
     transform: translateY(0);
 }
 
-/* Music toggle button */
+/* Music toggle button: matches theme */
 #music-toggle {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.85);
-    border: none;
+    background: rgba(15, 23, 42, 0.72);
+    border: 1px solid rgba(245, 245, 220, 0.25);
     border-radius: 50%;
     width: 52px;
     height: 52px;
     font-size: 1.4rem;
+    color: #f5f5dc;
     cursor: pointer;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    transition: transform 0.2s;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
     z-index: 100;
 }
 
 #music-toggle:hover {
     transform: scale(1.1);
+    background: rgba(15, 23, 42, 0.82);
+    border-color: rgba(212, 175, 55, 0.35);
 }
 
 /* Yes page specific */
 .yes-container h1.yes-title {
     font-size: 2.8rem;
-    animation: bounceTitle 0.6s ease infinite alternate;
+    animation: bounceTitle 0.7s ease infinite alternate;
 }
 
 @keyframes bounceTitle {
-    from { transform: translateY(0) rotate(-1deg); }
-    to { transform: translateY(-12px) rotate(1deg); }
+    from { transform: translateY(0) rotate(-0.6deg); }
+    to { transform: translateY(-12px) rotate(0.6deg); }
 }
 
 .yes-message {
     font-size: 1.4rem;
-    color: #e91e8c;
+    color: rgba(245, 245, 220, 0.92);
     font-weight: 700;
     margin-top: 24px;
     animation: fadeIn 1s ease 0.5s both;
